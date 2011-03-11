@@ -1,0 +1,25 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{eurosym}
+
+%opening
+\title{Open Information Systems Project - Conceptual Schema}
+\author{Daniel Silva Chaltein de Almeida \and Felipe Marulanda \and Łukasz Kidziński \and Thiago Mendonça \and Wolney Mello Neto}
+\begin{document}
+
+\maketitle
+
+\section{Description}
+  We're proposing an ontology for RFPs\footnote{Request For Proposal} systems that manage movie rentals. Such systems would have the following proccess flow:
+  \begin{enumerate}
+    \item Clients make requests (2 comedies, 5 blockbusters, etc...)
+    \item Video store owners look at the requests and make proposals (\{{}Ace Ventura, The Mask - for X\euro\}, {Transformers, ... - for X\euro})
+    \item Clients choose best proposal
+  \end{enumerate}
+  A few notes about the ontology:
+\begin{enumerate}
+  \item At the time a request is made the client is not provided with the list of movies that match it, that list is part of the proposal and is going to be constructed by the video store owners, that's why we attached every attribute of the Movie entity to the Request entity.
+\end{enumerate}
+
+
+\end{document}
