@@ -3,6 +3,7 @@
 \usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{multirow}
 
 %opening
 \title{Open Information Systems - Report on Activities}
@@ -20,21 +21,30 @@
 In order to describe the trajectory of this project, we decided to make a report describing what we did during each practice session. Furthermore, our goal is to show how our ideas were created and shaped to what they are now.
 
 \subsection{Activities}
-Below we show the chronogram of activities.
+Below we show the chronogram of activities in Table \ref{tab:timeline}.
 
 \begin{table}[!h]
   \centering
-  \caption{Reproduction}
-  \begin{tabular}{|l|c|c|c|c|c|}
+  \caption{Timeline of project development - from week 24 to 32}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|}
     \hline
-    Parent A & 1 & 2 & 3 & 4 & 5 \\ \hline
-    Parent B & 5 & 1 & 4 & 2 & 3 \\ \hline
-    Child 1 & \textbf{1} & \textbf{2} & 5 & 4 & 3 \\ \hline
-    Child 2 & 5 & \textbf{2} & \textbf{3} & \textbf{4} & 1 \\ \hline
+    & \textbf{Sun} & \textbf{Mon} & \textbf{Tue} & \textbf{Wed} & \textbf{Thu} & \textbf{Fri} & \textbf{Sat} \\ \hline
+    \multirow{2}{*}{\textbf{March}}
+    & 6 & 7 & \textbf{8} & 9 & 10 & 11 & 12 \\ \cline{2-8}
+    & \textbf{13} & 14 & 15 & \textbf{16} & 17 & 18 & 19 \\ \cline{2-8}
+    & 20 & 21 & 22 & 23 & 24 & 25 & 26 \\ \cline{2-8}
+    & 27 & 28 & 29 & \textbf{30} & 31 & 1 & 2 \\ \hline
+    \multirow{4}{*}{\textbf{April}}
+    & 3 & 4 & 5 & 6 & 7 & 8 & 9  \\ \cline{2-8}
+    & 10 & 11 & 12 & 13 & 14 & 15 & 16 \\ \cline{2-8}
+    & 17 & 18 & 19 & 20 & 21 & 22 & 23 \\ \cline{2-8}
+    & 24 & 25 & 26 & \textbf{27} & 28 & 29 & 30 \\ \hline
+    \multirow{2}{*}{\textbf{May}}
+    & 1 & 2 & 3 & 4 & 5 & \textbf{6} & 7 \\ \cline{2-8}
+    & 8 & 9 & 10 & 11 & \textbf{12} & 13 & 14 \\ \hline
   \end{tabular}
-  \label{tab:rep}
+  \label{tab:timeline}
 \end{table}
-
 
 \subsubsection*{8th March - SVN Repository Creation}
 In order to maintain a consistent version of the ORM we were working on, we decided to publish it on a SVN repository available at \href{http://code.google.com/p/rfp-movies-ontology/}{http://code.google.com/p/rfp-movies-ontology/}. From that moment onwards, we edited our ORM not only during the practical sessions and group meetings, but we have also divided some tasks among us to be performed separately at home.
