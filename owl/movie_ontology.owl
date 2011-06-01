@@ -2,12 +2,15 @@
 
 
 <!DOCTYPE rdf:RDF [
+    <!ENTITY page "http://dbpedia.org/page/" >
+    <!ENTITY ontology "http://dbpedia.org/ontology/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY www "http://www.movieontology.org/2009/11/09/" >
     <!ENTITY movie_ontology "http://localhost/WTFDL/movie_ontology.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY movieontology2 "http://www.movieontology.org/2009/11/09/movieontology.owl#" >
     <!ENTITY movieontology "http://www.movieontology.org/2009/10/01/movieontology.owl#" >
 ]>
 
@@ -15,11 +18,14 @@
 <rdf:RDF xmlns="http://localhost/WTFDL/movie_ontology.owl#"
      xml:base="http://localhost/WTFDL/movie_ontology.owl"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:movieontology2="&www;movieontology.owl#"
      xmlns:movieontology="http://www.movieontology.org/2009/10/01/movieontology.owl#"
+     xmlns:page="http://dbpedia.org/page/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:www="http://www.movieontology.org/2009/11/09/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ontology="http://dbpedia.org/ontology/"
      xmlns:movie_ontology="http://localhost/WTFDL/movie_ontology.owl#">
     <owl:Ontology rdf:about="http://localhost/WTFDL/movie_ontology.owl"/>
     
@@ -47,6 +53,320 @@
     
 
 
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasAgeRange -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasAgeRange">
+        <rdfs:range rdf:resource="&movie_ontology;Age_Range"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasAudiotrack -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasAudiotrack">
+        <rdfs:range rdf:resource="&ontology;Language"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;isAudiotrackOf"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasDateRange -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasDateRange">
+        <rdfs:range rdf:resource="&movie_ontology;Date_Range"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;isDateRangeOf"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasMaximumAgeRating -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasMaximumAgeRating">
+        <rdfs:domain rdf:resource="&movie_ontology;Age_Range"/>
+        <rdfs:range rdf:resource="&movie_ontology;Age_Rating"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasMaximumDate -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasMaximumDate">
+        <rdfs:range rdf:resource="&movie_ontology;Date"/>
+        <rdfs:domain rdf:resource="&movie_ontology;Date_Range"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasMaximumOfficialRating -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasMaximumOfficialRating">
+        <rdfs:range rdf:resource="&movie_ontology;Official_Rating"/>
+        <rdfs:domain rdf:resource="&movie_ontology;Official_Rating_Range"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;isMaximumOfficialRatingOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasMedia -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasMedia">
+        <rdfs:range rdf:resource="&movie_ontology;Media"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;isMediaOf"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasMediaType -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasMediaType">
+        <rdfs:domain rdf:resource="&movie_ontology;Media"/>
+        <rdfs:range rdf:resource="&movie_ontology;MediaType"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;isMediaTypeOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasMinimumAgeRating -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasMinimumAgeRating">
+        <rdfs:domain rdf:resource="&movie_ontology;Age_Range"/>
+        <rdfs:range rdf:resource="&movie_ontology;Age_Rating"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasMinimumDate -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasMinimumDate">
+        <rdfs:range rdf:resource="&movie_ontology;Date"/>
+        <rdfs:domain rdf:resource="&movie_ontology;Date_Range"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasMinimumOfficialRating -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasMinimumOfficialRating">
+        <rdfs:range rdf:resource="&movie_ontology;Official_Rating"/>
+        <rdfs:domain rdf:resource="&movie_ontology;Official_Rating_Range"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;isMinimumOfficialRatingOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasOfficialRatingRange -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasOfficialRatingRange">
+        <rdfs:range rdf:resource="&movie_ontology;Official_Rating_Range"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;isOfficialRatingRangeOf"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasRegion -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasRegion">
+        <rdfs:domain rdf:resource="&movie_ontology;Media"/>
+        <rdfs:range rdf:resource="&movie_ontology;Region"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;isRegionOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasSubtitle -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasSubtitle">
+        <rdfs:range rdf:resource="&ontology;Language"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;isSubtitleOf"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#hasWriter -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;hasWriter">
+        <rdfs:range rdf:resource="&ontology;Writer"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;isWriterOf"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isAgeRangeOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isAgeRangeOf">
+        <rdfs:domain rdf:resource="&movie_ontology;Age_Range"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;hasAgeRange"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isAudiotrackOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isAudiotrackOf">
+        <rdfs:domain rdf:resource="&ontology;Language"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isDateRangeOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isDateRangeOf">
+        <rdfs:domain rdf:resource="&movie_ontology;Date_Range"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isLanguageOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isLanguageOf">
+        <rdfs:domain rdf:resource="&ontology;Language"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;withOriginalLanguage"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isMaximumAgeRatingOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isMaximumAgeRatingOf">
+        <rdfs:range rdf:resource="&movie_ontology;Age_Range"/>
+        <rdfs:domain rdf:resource="&movie_ontology;Age_Rating"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;hasMaximumAgeRating"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isMaximumDateOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isMaximumDateOf">
+        <rdfs:domain rdf:resource="&movie_ontology;Date"/>
+        <rdfs:range rdf:resource="&movie_ontology;Date_Range"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;hasMaximumDate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isMaximumOfficialRatingOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isMaximumOfficialRatingOf">
+        <rdfs:domain rdf:resource="&movie_ontology;Official_Rating"/>
+        <rdfs:range rdf:resource="&movie_ontology;Official_Rating_Range"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isMediaOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isMediaOf">
+        <rdfs:domain rdf:resource="&movie_ontology;Media"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isMediaTypeOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isMediaTypeOf">
+        <rdfs:range rdf:resource="&movie_ontology;Media"/>
+        <rdfs:domain rdf:resource="&movie_ontology;MediaType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isMinimumAgeRatingOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isMinimumAgeRatingOf">
+        <rdfs:range rdf:resource="&movie_ontology;Age_Range"/>
+        <rdfs:domain rdf:resource="&movie_ontology;Age_Rating"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;hasMinimumAgeRating"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isMinimumDateOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isMinimumDateOf">
+        <rdfs:domain rdf:resource="&movie_ontology;Date"/>
+        <rdfs:range rdf:resource="&movie_ontology;Date_Range"/>
+        <owl:inverseOf rdf:resource="&movie_ontology;hasMinimumDate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isMinimumOfficialRatingOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isMinimumOfficialRatingOf">
+        <rdfs:domain rdf:resource="&movie_ontology;Official_Rating"/>
+        <rdfs:range rdf:resource="&movie_ontology;Official_Rating_Range"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isOfficialRatingRangeOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isOfficialRatingRangeOf">
+        <rdfs:domain rdf:resource="&movie_ontology;Official_Rating_Range"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isRegionOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isRegionOf">
+        <rdfs:range rdf:resource="&movie_ontology;Media"/>
+        <rdfs:domain rdf:resource="&movie_ontology;Region"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isSubtitleOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isSubtitleOf">
+        <rdfs:domain rdf:resource="&ontology;Language"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#isWriterOf -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;isWriterOf">
+        <rdfs:domain rdf:resource="&ontology;Writer"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#nominates -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;nominates">
+        <rdfs:domain rdf:resource="&movieontology;Award"/>
+        <owl:inverseOf rdf:resource="&movieontology;nominatedFor"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#withOriginalLanguage -->
+
+    <owl:ObjectProperty rdf:about="&movie_ontology;withOriginalLanguage">
+        <rdfs:range rdf:resource="&ontology;Language"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre -->
 
     <owl:ObjectProperty rdf:about="&movieontology;belongsToGenre">
@@ -56,11 +376,115 @@
     
 
 
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#hasActor -->
+
+    <owl:ObjectProperty rdf:about="&movieontology;hasActor">
+        <rdfs:range rdf:resource="&ontology;Actor"/>
+        <owl:inverseOf rdf:resource="&movieontology;isActorIn"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#hasColor -->
+
+    <owl:ObjectProperty rdf:about="&movieontology;hasColor">
+        <rdfs:range rdf:resource="&movieontology;Colorinfo"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#hasComposer -->
+
+    <owl:ObjectProperty rdf:about="&movieontology;hasComposer">
+        <rdfs:range rdf:resource="&ontology;Musical_Artist"/>
+        <owl:inverseOf rdf:resource="&movieontology;isComposerIn"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector -->
+
+    <owl:ObjectProperty rdf:about="&movieontology;hasDirector">
+        <rdfs:range rdf:resource="&page;Film_Director"/>
+        <owl:inverseOf rdf:resource="&movieontology;isDirectorOf"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#isActorIn -->
+
+    <owl:ObjectProperty rdf:about="&movieontology;isActorIn">
+        <rdfs:domain rdf:resource="&ontology;Actor"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith -->
+
+    <owl:ObjectProperty rdf:about="&movieontology;isAwardedWith">
+        <rdfs:range rdf:resource="&movieontology;Award"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+        <owl:inverseOf rdf:resource="&www;movieontology.owl#isAwardOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#isColorOf -->
+
+    <owl:ObjectProperty rdf:about="&movieontology;isColorOf">
+        <rdfs:domain rdf:resource="&movieontology;Colorinfo"/>
+        <owl:inverseOf rdf:resource="&movieontology;hasColor"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#isComposerIn -->
+
+    <owl:ObjectProperty rdf:about="&movieontology;isComposerIn">
+        <rdfs:domain rdf:resource="&ontology;Musical_Artist"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#isDirectorOf -->
+
+    <owl:ObjectProperty rdf:about="&movieontology;isDirectorOf">
+        <rdfs:domain rdf:resource="&page;Film_Director"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#isGenreOf -->
 
     <owl:ObjectProperty rdf:about="&movieontology;isGenreOf">
         <rdfs:domain rdf:resource="&movieontology;Genre"/>
         <owl:inverseOf rdf:resource="&movieontology;belongsToGenre"/>
+        <rdfs:range rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#nominatedFor -->
+
+    <owl:ObjectProperty rdf:about="&movieontology;nominatedFor">
+        <rdfs:range rdf:resource="&movieontology;Award"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/11/09/movieontology.owl#isAwardOf -->
+
+    <owl:ObjectProperty rdf:about="&www;movieontology.owl#isAwardOf">
+        <rdfs:domain rdf:resource="&movieontology;Award"/>
         <rdfs:range rdf:resource="&www;Movie"/>
     </owl:ObjectProperty>
     
@@ -77,9 +501,39 @@
     
 
 
-    <!-- http://localhost/WTFDL/movie_ontology.owl#title -->
+    <!-- http://localhost/WTFDL/movie_ontology.owl#tag -->
 
-    <owl:DatatypeProperty rdf:about="&movie_ontology;title">
+    <owl:DatatypeProperty rdf:about="&movie_ontology;tag">
+        <rdfs:domain rdf:resource="&www;Movie"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating -->
+
+    <owl:DatatypeProperty rdf:about="&movieontology;imdbrating">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate -->
+
+    <owl:DatatypeProperty rdf:about="&movieontology;releasedate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#title -->
+
+    <owl:DatatypeProperty rdf:about="&movieontology;title">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:domain rdf:resource="&www;Movie"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -94,6 +548,116 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://dbpedia.org/ontology/Actor -->
+
+    <owl:Class rdf:about="&ontology;Actor">
+        <rdfs:subClassOf rdf:resource="&ontology;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Language -->
+
+    <owl:Class rdf:about="&ontology;Language"/>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Musical_Artist -->
+
+    <owl:Class rdf:about="&ontology;Musical_Artist">
+        <rdfs:subClassOf rdf:resource="&ontology;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Person -->
+
+    <owl:Class rdf:about="&ontology;Person"/>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Writer -->
+
+    <owl:Class rdf:about="&ontology;Writer">
+        <rdfs:subClassOf rdf:resource="&ontology;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/page/Film_Director -->
+
+    <owl:Class rdf:about="&page;Film_Director">
+        <rdfs:subClassOf rdf:resource="&ontology;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#Age_Range -->
+
+    <owl:Class rdf:about="&movie_ontology;Age_Range"/>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#Age_Rating -->
+
+    <owl:Class rdf:about="&movie_ontology;Age_Rating"/>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#Date -->
+
+    <owl:Class rdf:about="&movie_ontology;Date"/>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#Date_Range -->
+
+    <owl:Class rdf:about="&movie_ontology;Date_Range"/>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#Media -->
+
+    <owl:Class rdf:about="&movie_ontology;Media"/>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#MediaType -->
+
+    <owl:Class rdf:about="&movie_ontology;MediaType"/>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#Official_Rating -->
+
+    <owl:Class rdf:about="&movie_ontology;Official_Rating"/>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#Official_Rating_Range -->
+
+    <owl:Class rdf:about="&movie_ontology;Official_Rating_Range"/>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#Region -->
+
+    <owl:Class rdf:about="&movie_ontology;Region"/>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Award -->
+
+    <owl:Class rdf:about="&movieontology;Award"/>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Colorinfo -->
+
+    <owl:Class rdf:about="&movieontology;Colorinfo"/>
     
 
 
@@ -120,10 +684,130 @@
     
 
 
-    <!-- http://localhost/WTFDL/movie_ontology.owl#Adventure -->
+    <!-- http://localhost/WTFDL/movie_ontology.owl#0 -->
 
-    <owl:NamedIndividual rdf:about="&movie_ontology;Adventure">
-        <rdf:type rdf:resource="&movieontology;Genre"/>
+    <owl:NamedIndividual rdf:about="&movie_ontology;0">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#1 -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;1">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#2 -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;2">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#3 -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;3">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#4 -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;4">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#5 -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;5">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#6 -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;6">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#7 -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;7">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#8 -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;8">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#A -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;A">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#B -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;B">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#Blu_Ray -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;Blu_Ray">
+        <rdf:type rdf:resource="&movie_ontology;MediaType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#C -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;C">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#DVD -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;DVD">
+        <rdf:type rdf:resource="&movie_ontology;MediaType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#Free -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;Free">
+        <rdf:type rdf:resource="&movie_ontology;Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#G -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;G">
+        <rdf:type rdf:resource="&movie_ontology;Age_Rating"/>
     </owl:NamedIndividual>
     
 
@@ -132,8 +816,160 @@
 
     <owl:NamedIndividual rdf:about="&movie_ontology;Lord_of_the_Rings">
         <rdf:type rdf:resource="&www;Movie"/>
-        <title>Lord of the Rings</title>
-        <movieontology:belongsToGenre rdf:resource="&movie_ontology;Adventure"/>
+        <movieontology:title>Lord of the Rings</movieontology:title>
+        <movieontology:belongsToGenre rdf:resource="&movieontology;Adventure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#M -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;M">
+        <rdf:type rdf:resource="&movie_ontology;Age_Rating"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#NC-17 -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;NC-17">
+        <rdf:type rdf:resource="&movie_ontology;Age_Rating"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#NR -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;NR">
+        <rdf:type rdf:resource="&movie_ontology;Age_Rating"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#PG -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;PG">
+        <rdf:type rdf:resource="&movie_ontology;Age_Rating"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#PG-13 -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;PG-13">
+        <rdf:type rdf:resource="&movie_ontology;Age_Rating"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/WTFDL/movie_ontology.owl#R -->
+
+    <owl:NamedIndividual rdf:about="&movie_ontology;R">
+        <rdf:type rdf:resource="&movie_ontology;Age_Rating"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Action -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Action">
+        <rdf:type rdf:resource="&movieontology;Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Adult -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Adult">
+        <rdf:type rdf:resource="&movieontology;Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Adventure -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Adventure">
+        <rdf:type rdf:resource="&movieontology;Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Black_and_White -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Black_and_White">
+        <rdf:type rdf:resource="&movieontology;Colorinfo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Color -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Color">
+        <rdf:type rdf:resource="&movieontology;Colorinfo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Comedy -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Comedy">
+        <rdf:type rdf:resource="&movieontology;Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Documentary -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Documentary">
+        <rdf:type rdf:resource="&movieontology;Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Drama -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Drama">
+        <rdf:type rdf:resource="&movieontology;Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Horror -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Horror">
+        <rdf:type rdf:resource="&movieontology;Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Musical -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Musical">
+        <rdf:type rdf:resource="&movieontology;Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Romance -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Romance">
+        <rdf:type rdf:resource="&movieontology;Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Sci-Fi -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Sci-Fi">
+        <rdf:type rdf:resource="&movieontology;Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Thriller -->
+
+    <owl:NamedIndividual rdf:about="&movieontology;Thriller">
+        <rdf:type rdf:resource="&movieontology;Genre"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
