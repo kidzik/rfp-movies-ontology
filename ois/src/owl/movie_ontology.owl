@@ -548,13 +548,13 @@
     <!-- http://www.movieontology.org/2009/11/09/Movie -->
 
     <owl:Class rdf:about="&www;Movie">
-        <rdfs:subClassOf>
+        <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasMedia"/>
                 <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Media"/>
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
-        </rdfs:subClassOf>
+        </owl:equivalentClass>
         <rdfs:comment>A grade given to the movie based on an official critic website.</rdfs:comment>
     </owl:Class>
     
