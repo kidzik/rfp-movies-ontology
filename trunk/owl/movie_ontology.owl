@@ -34,6 +34,20 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost/WTFDL/movie_ontology.owl#description">
+        <rdfs:subPropertyOf rdf:resource="&rdfs;comment"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Datatypes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -543,6 +557,7 @@
     <!-- http://localhost/WTFDL/movie_ontology.owl#tag -->
 
     <owl:DatatypeProperty rdf:about="http://localhost/WTFDL/movie_ontology.owl#tag">
+        <rdfs:comment>A string that defines something about the movie that is not modeled in any other entity. Can be something about the movie plot or the setting or anything else actually.</rdfs:comment>
         <rdfs:domain rdf:resource="&www;Movie"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -573,6 +588,7 @@
 
     <owl:DatatypeProperty rdf:about="&movieontology;title">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment>The title (name) of a movie.</rdfs:comment>
         <rdfs:domain rdf:resource="&www;Movie"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -600,7 +616,9 @@
 
     <!-- http://dbpedia.org/ontology/Language -->
 
-    <owl:Class rdf:about="&ontology;Language"/>
+    <owl:Class rdf:about="&ontology;Language">
+        <rdfs:comment>A language can happen in a movie in the dubbing (can be original sound or not) or in subtitles.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -614,7 +632,9 @@
 
     <!-- http://dbpedia.org/ontology/Person -->
 
-    <owl:Class rdf:about="&ontology;Person"/>
+    <owl:Class rdf:about="&ontology;Person">
+        <rdfs:comment>A person that can play different roles with a movie, like actor, director, etc.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -651,19 +671,24 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Range of age rating for a movie defined by the client.</rdfs:comment>
     </owl:Class>
     
 
 
     <!-- http://localhost/WTFDL/movie_ontology.owl#Age_Rating -->
 
-    <owl:Class rdf:about="http://localhost/WTFDL/movie_ontology.owl#Age_Rating"/>
+    <owl:Class rdf:about="http://localhost/WTFDL/movie_ontology.owl#Age_Rating">
+        <rdfs:comment>Defines the minimum age required for watching the movie.</rdfs:comment>
+    </owl:Class>
     
 
 
     <!-- http://localhost/WTFDL/movie_ontology.owl#Date -->
 
-    <owl:Class rdf:about="http://localhost/WTFDL/movie_ontology.owl#Date"/>
+    <owl:Class rdf:about="http://localhost/WTFDL/movie_ontology.owl#Date">
+        <rdfs:comment>Release date of a movie.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -672,18 +697,19 @@
     <owl:Class rdf:about="http://localhost/WTFDL/movie_ontology.owl#Date_Range">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasMinimumDate"/>
+                <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasMaximumDate"/>
                 <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Date"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasMaximumDate"/>
+                <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasMinimumDate"/>
                 <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Date"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Range of release date for a movie defined by the client.</rdfs:comment>
     </owl:Class>
     
 
@@ -694,17 +720,18 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasMediaType"/>
-                <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Region"/>
+                <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#MediaType"/>
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasMediaType"/>
-                <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#MediaType"/>
+                <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Region"/>
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Type of media in which the product is produced.</rdfs:comment>
     </owl:Class>
     
 
@@ -738,31 +765,40 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Range of critic rating of a movie defined by the client. Can be maximum rating and/or minimum rating.</rdfs:comment>
     </owl:Class>
     
 
 
     <!-- http://localhost/WTFDL/movie_ontology.owl#Region -->
 
-    <owl:Class rdf:about="http://localhost/WTFDL/movie_ontology.owl#Region"/>
+    <owl:Class rdf:about="http://localhost/WTFDL/movie_ontology.owl#Region">
+        <rdfs:comment>The region of a media, indicates in which countries the media can be sold.</rdfs:comment>
+    </owl:Class>
     
 
 
     <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Award -->
 
-    <owl:Class rdf:about="&movieontology;Award"/>
+    <owl:Class rdf:about="&movieontology;Award">
+        <rdfs:comment>Award that can be associated with a movie.</rdfs:comment>
+    </owl:Class>
     
 
 
     <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Colorinfo -->
 
-    <owl:Class rdf:about="&movieontology;Colorinfo"/>
+    <owl:Class rdf:about="&movieontology;Colorinfo">
+        <rdfs:comment>The colour of the movie defines if it is in black-and-white or colored.</rdfs:comment>
+    </owl:Class>
     
 
 
     <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#Genre -->
 
-    <owl:Class rdf:about="&movieontology;Genre"/>
+    <owl:Class rdf:about="&movieontology;Genre">
+        <rdfs:comment>Concept that group movies together based on some criteria.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -776,6 +812,7 @@
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>A grade given to the movie based on an official critic website.</rdfs:comment>
     </owl:Class>
     
 
