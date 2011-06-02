@@ -1,8 +1,8 @@
 \subsection{SPARQL Queries}
-Some examples presented in Section 1 describe how an application would access the concepts defined into the movie ontology.
+Some examples presented in Section 1 describe how an application would access the concepts defined in the movie ontology.
 Therefore, SPARQL queries are implemented in order to make a demonstration of how these examples previously proposed work in practice.
 
-Jena API was used to code in Java a routine composed by the following steps:
+Jena API was used to code a routine in Java composed by the following steps:
 
 \begin{itemize}
   \item Load the model from an .owl file to create an instance of OntModel
@@ -20,7 +20,7 @@ String query2 = "SELECT ?p ?o WHERE {?p <http://www.movieontology.org/2009/10/01
 title> ?o.}";
 \end{lstlisting}
 
-  \item Collect the results from in a ResultSet.
+  \item Collect the results from a ResultSet.
 \begin{lstlisting}
 1 http://localhost/WTFDL/movie_ontology.owl#Way_of_the_Dragon Way of the Dragon 
 2 http://localhost/WTFDL/movie_ontology.owl#The_Mask  The Mask  
@@ -30,11 +30,11 @@ title> ?o.}";
 
 \end{itemize}
 
-Futhermore, some other queries listed below were implemented:
+Furthermore, some other queries listed below were implemented:
 
 \begin{itemize}
 
- \item Give me all titles:
+ \item Give me all the titles:
   \begin{itemize}
     \item Query : 
 \begin{verbatim}
