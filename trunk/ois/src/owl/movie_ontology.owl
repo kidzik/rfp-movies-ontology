@@ -690,8 +690,8 @@
     <owl:NamedIndividual rdf:about="http://localhost/WTFDL/movie_ontology.owl#Ace_Ventura">
         <rdf:type rdf:resource="&www;Movie"/>
         <movieontology:releasedate rdf:datatype="&xsd;date">1994-02-04</movieontology:releasedate>
-        <movieontology:imdbrating>6.6</movieontology:imdbrating>
-        <movieontology:title>Ace Ventura, Pet Detective</movieontology:title>
+        <movieontology:imdbrating rdf:datatype="&xsd;double">6.6</movieontology:imdbrating>
+        <movieontology:title rdf:datatype="&xsd;string">Ace Ventura, Pet Detective</movieontology:title>
         <movieontology:hasActor rdf:resource="&resource;Jim_Carrey"/>
         <hasMediaType rdf:resource="http://localhost/WTFDL/movie_ontology.owl#DVD"/>
         <hasRegion rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Free"/>
@@ -769,9 +769,9 @@
     <owl:NamedIndividual rdf:about="http://localhost/WTFDL/movie_ontology.owl#Inception">
         <rdf:type rdf:resource="&www;Movie"/>
         <movieontology:releasedate rdf:datatype="&xsd;date">2010-07-21</movieontology:releasedate>
-        <movieontology:imdbrating>8.9</movieontology:imdbrating>
-        <tag>dream</tag>
-        <movieontology:title>Inception</movieontology:title>
+        <movieontology:imdbrating rdf:datatype="&xsd;double">8.9</movieontology:imdbrating>
+        <movieontology:title rdf:datatype="&xsd;string">Inception</movieontology:title>
+        <tag rdf:datatype="&xsd;string">dream</tag>
         <hasRegion rdf:resource="http://localhost/WTFDL/movie_ontology.owl#B"/>
         <hasMediaType rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Blu_Ray"/>
         <movieontology:hasActor rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Leonardo_Di_Caprio"/>
@@ -874,9 +874,9 @@
     <owl:NamedIndividual rdf:about="http://localhost/WTFDL/movie_ontology.owl#The_Mask">
         <rdf:type rdf:resource="&www;Movie"/>
         <movieontology:releasedate rdf:datatype="&xsd;date">1994-07-29</movieontology:releasedate>
-        <movieontology:title>The Mask</movieontology:title>
-        <tag>superhero</tag>
-        <movieontology:imdbrating>6.7</movieontology:imdbrating>
+        <movieontology:imdbrating rdf:datatype="&xsd;double">6.7</movieontology:imdbrating>
+        <movieontology:title rdf:datatype="&xsd;string">The Mask</movieontology:title>
+        <tag rdf:datatype="&xsd;string">superhero</tag>
         <withOriginalLanguage rdf:resource="&resource;English_language"/>
         <hasSubtitle rdf:resource="&resource;English_language"/>
         <movieontology:hasActor rdf:resource="&resource;Jim_Carrey"/>
@@ -898,10 +898,10 @@
     <owl:NamedIndividual rdf:about="http://localhost/WTFDL/movie_ontology.owl#Way_of_the_Dragon">
         <rdf:type rdf:resource="&www;Movie"/>
         <movieontology:releasedate rdf:datatype="&xsd;date">1972-12-30</movieontology:releasedate>
-        <tag>martial arts</tag>
-        <movieontology:title>Way of the Dragon</movieontology:title>
-        <tag>kung fu</tag>
-        <movieontology:imdbrating>7.0</movieontology:imdbrating>
+        <movieontology:imdbrating rdf:datatype="&xsd;double">7.0</movieontology:imdbrating>
+        <movieontology:title rdf:datatype="&xsd;string">Way of the Dragon</movieontology:title>
+        <tag rdf:datatype="&xsd;string">kung fu</tag>
+        <tag rdf:datatype="&xsd;string">martial arts</tag>
         <hasWriter rdf:resource="&resource;Bruce_Lee"/>
         <movieontology:hasActor rdf:resource="&resource;Bruce_Lee"/>
         <movieontology:hasDirector rdf:resource="&resource;Bruce_Lee"/>
