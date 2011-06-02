@@ -3,6 +3,7 @@
 \usepackage{fullpage}
 \usepackage{eurosym}
 \usepackage{fullpage}
+\usepackage{graphicx}
 \usepackage{listings}
 \lstset{
   language=Java,
@@ -26,7 +27,7 @@ Wolney Mello Neto (98782)\\
 
 \section{Description}
 
-We're proposing an ontology for RFPs\footnote{Request For Proposal} systems that manage movie rentals. Such systems would have the following proccess flow:
+We are proposing an ontology for RFPs\footnote{Request For Proposal} systems that manage movie rentals. Such systems would have the following proccess flow:
 \begin{enumerate}
   \item Clients make requests: The client can either choose an specific movie or if he is uncertain about which movie to rent, choose some desired movie properties and then the proposer will recommend movies based on the constraints he defined.
     \subitem Constraints can be: genres, name of actors, director, year of release, etc.
@@ -48,6 +49,16 @@ About the ontology:
   \item At the time a request is made the client is not provided with the list of movies that match it, that list is part of the proposal and is going to be constructed by the video store owners, that's why we attached every attribute of the Movie entity to the Request entity.
   \item Only the most confusing entities have notes and roles do not.
 \end{itemize}
+
+Figure \ref{fig:onto} shows the resulting ontology.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\textwidth]{movie_ontology.jpg}
+ \caption{Ontology constructed}
+ \label{fig:onto}
+\end{figure}
+
 
 
 \section{Implementation}
