@@ -3,6 +3,7 @@ package vocabulary;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.Resource;
 
 public class Movieontology2 {
 
@@ -11,5 +12,6 @@ public class Movieontology2 {
     private static Model m = ModelFactory.createDefaultModel();
 
     public static final Property title = m.createProperty(uri, "title" );
+    public static final Resource belongsToGenre = m.createResource(uri + "belongsToGenre" );
 
 }
