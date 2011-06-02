@@ -54,7 +54,10 @@ This 3rd deliverable was implemented within two tools: Protégé\cite{protege} a
 Some examples presented in Section 1 describe how an application would access the concepts defined into the movie ontology.
 Therefore, SPARQL queries are implemented in order to make a demonstration of how these examples previously proposed work in practice.
 
-\lstset{language=Java}
+Jena API was used to code in Java a routine composed by the following steps:
+
+\begin{itemize}
+  \item Load the model from an .owl file into an instance of com.hp.hpl.jena.ontology.OntModel;
 \begin{lstlisting}
 OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
 // use the class loader to find the input file
@@ -62,18 +65,6 @@ InputStream in = FileManager.get().open(inputOWLFileName);
 // read the RDF/XML/OWL file
 model.read(new InputStreamReader(in), "");
 \end{lstlisting}
-
-Jena API was used to code in Java a routine composed by the following steps:
-
-\begin{itemize}
-  \item Load the model from an .owl file into an instance of com.hp.hpl.jena.ontology.OntModel;
-%\begin{lstlisting}
-%OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
-%// use the class loader to find the input file
-%InputStream in = FileManager.get().open(inputOWLFileName);
-%// read the RDF/XML/OWL file
-%model.read(new InputStreamReader(in), "");
-%\end{lstlisting}
 
   \item Write strings that are queries in SPARQL and submit them to com.hp.hpl.jena.query.QueryExecutionFactory;
 %\begin{lstlisting}
