@@ -5,7 +5,7 @@ Therefore, SPARQL queries are implemented in order to make a demonstration of ho
 Jena API was used to code in Java a routine composed by the following steps:
 
 \begin{itemize}
-  \item Load the model from an .owl file into an instance of com.hp.hpl.jena.ontology.OntModel;
+  \item Load the model from an .owl file to create an instance of OntModel
 \begin{lstlisting}
 OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
 // use the class loader to find the input file
@@ -14,26 +14,38 @@ InputStream in = FileManager.get().open(inputOWLFileName);
 model.read(new InputStreamReader(in), "");
 \end{lstlisting}
 
-  \item Write strings that are queries in SPARQL and submit them to com.hp.hpl.jena.query.QueryExecutionFactory;
+  \item Write strings that are queries in SPARQL and submit them to QueryExecutionFactory
 \begin{lstlisting}
-String query2 = "SELECT ?p ?genre WHERE" +
-" {?p <http://localhost/WTFDL/movie_ontology.owl#title> \"Lord of the Rings\"." +
-"?p <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> ?genre.}";
+String query2 = "SELECT ?p ?o WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?o.}";
 \end{lstlisting}
 
-  \item Collect the results from a com.hp.hpl.jena.query.ResultSet.
+  \item Collect the results from in a ResultSet.
 \begin{lstlisting}
-http://localhost/WTFDL/movie_ontology.owl#Lord_of_the_Rings
-http://localhost/WTFDL/movie_ontology.owl#Adventure
+1 http://localhost/WTFDL/movie_ontology.owl#Way_of_the_Dragon Way of the Dragon 
+2 http://localhost/WTFDL/movie_ontology.owl#The_Mask  The Mask  
+3 http://localhost/WTFDL/movie_ontology.owl#Inception Inception 
+4 http://localhost/WTFDL/movie_ontology.owl#Ace_Ventura Ace Ventura, Pet Detective  
 \end{lstlisting}
 
 \end{itemize}
 
 Futhermore, some other queries listed below were implemented:
 
-%\begin{itemize}
-% \item Get movie starred by Jim Carrey.
-%    Query : `` SELECT ?p WHERE ()  ''
-%    Result:
-%
-%\end{itemize}
+\begin{itemize}
+ \item Get movies whose title contains ``the''.
+  \begin{itemize}
+    \item Query : 
+\begin{verbatim}
+SELECT ?p ?genre WHERE {
+  ?p <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?o.
+  FILTER regex(?o, "the", "i")
+}
+\end{verbatim}
+    \item
+      \begin{lstlisting}
+1 http://localhost/WTFDL/movie_ontology.owl#Way_of_the_Dragon 
+2 http://localhost/WTFDL/movie_ontology.owl#The_Mask  
+      \end{lstlisting}
+    \end{itemize}
+
+\end{itemize}
