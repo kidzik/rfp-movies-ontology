@@ -16,7 +16,8 @@ model.read(new InputStreamReader(in), "");
 
   \item Write strings that are queries in SPARQL and submit them to QueryExecutionFactory
 \begin{lstlisting}
-String query2 = "SELECT ?p ?o WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?o.}";
+String query2 = "SELECT ?p ?o WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#
+title> ?o.}";
 \end{lstlisting}
 
   \item Collect the results from in a ResultSet.
@@ -32,19 +33,71 @@ String query2 = "SELECT ?p ?o WHERE {?p <http://www.movieontology.org/2009/10/01
 Futhermore, some other queries listed below were implemented:
 
 \begin{itemize}
- \item Get movies whose title contains ``the''.
+
+ \item Give me all titles:
+  \begin{itemize}
+    \item Query : 
+\begin{verbatim}
+SELECT ?p ?o WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#
+title> ?o.}
+\end{verbatim}
+    \item Output
+      \begin{lstlisting}
+1	http://localhost/WTFDL/movie_ontology.owl#Way_of_the_Dragon	Way of the Dragon	
+2	http://localhost/WTFDL/movie_ontology.owl#The_Mask	The Mask	
+3	http://localhost/WTFDL/movie_ontology.owl#Inception	Inception	
+4	http://localhost/WTFDL/movie_ontology.owl#Ace_Ventura	Ace Ventura, Pet Detective	
+      \end{lstlisting}
+    \end{itemize}
+
+ \item Give me all titles containing ``the'':
   \begin{itemize}
     \item Query : 
 \begin{verbatim}
 SELECT ?p ?genre WHERE {
-  ?p <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?o.
-  FILTER regex(?o, "the", "i")
+  ?p <http://www.movieontology.org/2009/10/01/movieontology.owl#
+title> ?o.
+FILTER regex(?o, "the", "i")
 }
 \end{verbatim}
-    \item
+    \item Output
       \begin{lstlisting}
 1 http://localhost/WTFDL/movie_ontology.owl#Way_of_the_Dragon 
 2 http://localhost/WTFDL/movie_ontology.owl#The_Mask  
+      \end{lstlisting}
+    \end{itemize}
+
+ \item Give me 1 action movie from last year (2010):
+  \begin{itemize}
+    \item Query : 
+\begin{verbatim}
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?p ?date WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#
+belongsToGenre> <http://www.movieontology.org/2009/10/01/movieontology.owl#Action>.
+?p <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date.
+FILTER (?date >= "2010-01-01"^^xsd:date).}
+LIMIT 1
+\end{verbatim}
+    \item Output
+      \begin{lstlisting}
+1	http://localhost/WTFDL/movie_ontology.owl#Inception	2010-07-21^^http://www.w3.org/2001/XMLSchema#date
+      \end{lstlisting}
+    \end{itemize}
+
+ \item Give me 2 comedy movies with Jim Carrey:
+  \begin{itemize}
+    \item Query : 
+\begin{verbatim}
+SELECT ?p WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#
+belongsToGenre> <http://www.movieontology.org/2009/10/01/movieontology.owl#Comedy>.
+?p <http://www.movieontology.org/2009/10/01/movieontology.owl#hasActor>
+<http://dbpedia.org/resource/Jim_Carrey>.}
+LIMIT 2
+\end{verbatim}
+    \item Output
+      \begin{lstlisting}
+1	http://localhost/WTFDL/movie_ontology.owl#The_Mask	
+2	http://localhost/WTFDL/movie_ontology.owl#Ace_Ventura
       \end{lstlisting}
     \end{itemize}
 

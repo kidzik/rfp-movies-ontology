@@ -18,36 +18,50 @@ public class SPARQLQueries {
 	static final String inputFile = "owl/movie_ontology.owl";
 
 	public static void main(String[] args) {
-		
-		OntModel model = loadModel(inputFile);
-		
-		// example of query
-		String qAllTitles = "SELECT ?p ?o WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?o." +
-		"}";
-		String qThe = "SELECT ?p ?genre WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?o." +
-									"  FILTER regex(?o, \"the\", \"i\") " +
-									"}";
-		
-		
-		//possible future queries
-		//String query2 = "SELECT ?m WHERE {" +
-		//		"?genre <http://...#belongsToGenre> ?m." +
-		//		"?m <http://...#hasMaximumAgeRating> ?number." +
-		//		"FILTER {?number > 25}}";	
-		
-		System.out.println(qAllTitles);
-		submitQuery(model, qAllTitles);
-		System.out.println();
-		
-		System.out.println(qThe);
-		submitQuery(model, qThe);
-		System.out.println();
 
-		System.out.println(com.hp.hpl.jena.vocabulary.XSD.date.getURI());
+		OntModel model = loadModel(inputFile);
+
+		// Give me all titles
+		System.out.println("Give me all titles:");
+		String qAllTitles = "SELECT ?p ?o WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?o."
+				+ "}";
+		submitQuery(model, qAllTitles);
+
+		// Give me all titles containing "the"
+		System.out.println("Give me all titles containing \"the\":");
+		String qThe = "SELECT ?p ?genre WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?o."
+				+ "  FILTER regex(?o, \"the\", \"i\") " + "}";
+		submitQuery(model, qThe);
+
+		// Give me 1 action movie from last year (2010)
+		System.out.println("Give me 1 action movie from last year (2010):");
+		String qActionLastYear = "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
+				+ "SELECT ?p ?date WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> <http://www.movieontology.org/2009/10/01/movieontology.owl#Action>."
+				+ "?p <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date."
+				+ "FILTER (?date >= \"2010-01-01\"^^xsd:date)."
+				+ "} LIMIT 1";
+		submitQuery(model, qActionLastYear);
+
+		// Give me 2 comedy movies with Jim Carrey
+		System.out.println("Give me 2 comedy movies with Jim Carrey:");
+		String qComedyJimCarrey = "SELECT ?p WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> <http://www.movieontology.org/2009/10/01/movieontology.owl#Comedy>."
+				+ "?p <http://www.movieontology.org/2009/10/01/movieontology.owl#hasActor> <http://dbpedia.org/resource/Jim_Carrey>."
+				+ "} LIMIT 2";
+		submitQuery(model, qComedyJimCarrey);
+		
+//		// Give me 1 movie with IMDB rating greater than 8
+//		System.out.println("Give me 1 movie with IMDB rating greater than 8");
+//		String qIMDB8 = "SELECT ?p ?imdbrating WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating> ?imdbrating."
+//				+ "FILTER (?imdbrating > 2.0)."
+//				+ "} LIMIT 1";
+//		submitQuery(model, qIMDB8);
+//		
+		
 	}
 
 	private static void submitQuery(OntModel model, String query) {
-		QueryExecution qexec = QueryExecutionFactory.create(query, model) ;
+		System.out.println(query);
+		QueryExecution qexec = QueryExecutionFactory.create(query, model);
 
 		ResultSet results = (ResultSet) qexec.execSelect();
 		int i = 1;
@@ -62,6 +76,7 @@ public class SPARQLQueries {
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
 
 	public static OntModel loadModel(String inputFileName) {
