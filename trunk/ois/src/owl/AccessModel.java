@@ -1,4 +1,4 @@
-package movie;
+package owl;
 
 import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.util.FileManager;
