@@ -27,34 +27,34 @@ Wolney Mello Neto (98782)\\
 
 \section{Description}
 
-We are proposing an ontology for RFPs\footnote{Request For Proposal} systems that manage movie rentals. Such systems would have the following proccess flow:
+We are proposing an ontology for RFPs\footnote{Request For Proposal} systems that manage movie rentals. Such systems would have the following process flow:
 \begin{enumerate}
-  \item Clients make requests: The client can either choose an specific movie or if he is uncertain about which movie to rent, choose some desired movie properties and then the proposer will recommend movies based on the constraints he defined.
+  \item Clients make requests: The client can either choose a specific movie or if he is uncertain about which movie to rent, choose some desired movie properties. The proposer will then recommend movies based on the constraints he defined.
     \subitem Constraints can be: genres, name of actors, director, year of release, etc.
     \subitem The client can also put a target price to pay (which can be accepted or raised by the proposer).
-    \subitem As an additional option, the client can choose a limit date in which he accepts proposals, in case he wants the movies until a specific date.
-  \item Video store owners look at the requests and make proposals, accepting the proposed price (if there's one) or adding their own price.
-  \item Clients choose best proposal
+    \subitem Optionally, the client can also indicate until when he wishes to receive movie proposals, in case he wants the movies until a specific date.
+  \item Video store owners look at the requests and make proposals, accepting the proposed price (if there is one) or adding their own price.
+  \item Clients choose the best proposal
 \end{enumerate}
 
 Example:
 \begin{enumerate}
-  \item Client A make a requests for: 2 comedy movies with Jim Carrey and 1 Action movie from the last year.
-  \item Video store owners look at the requests and make proposals: (Ace Ventura, The Mask and Inception for X \euro).
-  \item Clients choose one of the proposals and they complete the transaction (or decline all the proposals).
+  \item Client A makes a request for: 2 comedy movies with Jim Carrey and 1 Action movie from the previous year.
+  \item Video store owners look at the request and make proposals: (Ace Ventura, The Mask and Inception for X \euro).
+  \item Client A chooses one of the proposals and completes the transaction (or declines all the proposals).
 \end{enumerate}
 
-About the ontology:
+Ontology description:
 \begin{itemize}
-  \item At the time a request is made the client is not provided with the list of movies that match it, that list is part of the proposal and is going to be constructed by the video store owners, that's why we attached every attribute of the Movie entity to the Request entity.
-  \item Only the most confusing entities have notes and roles do not.
+  \item At the time a request is made the client is not provided with the list of movies that match it. That list is part of the proposal and is going to be constructed by the video store owners. That is why every attribute of the Movie entity was attached to the Request entity.
+  \item Only the most confusing entities have notes. Roles do not have them.
 \end{itemize}
 
 Figure \ref{fig:onto} shows the resulting ontology.
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=\textwidth]{movie_ontology.jpg}
+%  \includegraphics[width=\textwidth]{movie_ontology.jpg}
  \caption{Ontology constructed}
  \label{fig:onto}
 \end{figure}
