@@ -4,7 +4,14 @@
 \usepackage{eurosym}
 \usepackage{fullpage}
 \usepackage{listings}
-\lstset{language=Java,caption={SPARQLQueries.Java},label=DescriptiveLabel}
+\lstset{
+  language=Java,
+  caption={SPARQLQueries.Java},
+  label=DescriptiveLabel,
+  breaklines=true,
+  showspaces=false,
+  showstringspaces=false
+}
 
 %opening
 \title{Open Information Systems Project - Conceptual Schema}
@@ -59,8 +66,7 @@ Jena API was used to code in Java a routine composed by the following steps:
 \begin{itemize}
   \item Load the model from an .owl file into an instance of com.hp.hpl.jena.ontology.OntModel;
 \begin{lstlisting}
-OntModel model = ModelFactory.
-  createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
+OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
 // use the class loader to find the input file
 InputStream in = FileManager.get().open(inputOWLFileName);
 // read the RDF/XML/OWL file
