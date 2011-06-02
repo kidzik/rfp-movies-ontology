@@ -1,0 +1,128 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multirow}
+
+%opening
+\title{Open Information Systems - Report on Activities}
+\author{Daniel Silva Chaltein de Almeida
+\and Felipe Gomez Marulanda
+\and \L{}ukasz Kidzi\'nski
+\and Thiago Dantas De Mendon\c{}a
+\and Wolney Mello Neto}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In order to describe the trajectory of this project, we decided to make a report describing what we did during each practice session. Furthermore, our goal is to show how our ideas were created and shaped to what they are now.
+
+\subsection{Activities}
+Below we show the chronogram of activities in Table \ref{tab:timeline}.
+
+\begin{table}[!h]
+  \centering
+  \caption{Timeline of project development - from week 24 to 32}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
+    & \textbf{Sun} & \textbf{Mon} & \textbf{Tue} & \textbf{Wed} & \textbf{Thu} & \textbf{Fri} & \textbf{Sat} \\ \hline
+    \multirow{2}{*}{\textbf{March}}
+    & 6 & 7 & {\large\textbf{8}} & 9 & 10 & 11 & 12 \\ \cline{2-8}
+    & {\large\textbf{13}} & 14 & 15 & {\large\textbf{16}} & 17 & 18 & 19 \\ \cline{2-8}
+    & 20 & 21 & 22 & 23 & 24 & 25 & 26 \\ \cline{2-8}
+    & 27 & 28 & 29 & {\large\textbf{30}} & 31 & 1 & 2 \\ \hline
+    \multirow{4}{*}{\textbf{April}}
+    & 3 & 4 & 5 & 6 & 7 & 8 & 9  \\ \cline{2-8}
+    & 10 & 11 & 12 & 13 & 14 & 15 & 16 \\ \cline{2-8}
+    & 17 & 18 & 19 & 20 & 21 & 22 & 23 \\ \cline{2-8}
+    & 24 & 25 & 26 & {\large\textbf{27}} & 28 & 29 & 30 \\ \hline
+    \multirow{2}{*}{\textbf{May}}
+    & 1 & 2 & 3 & 4 & 5 & {\large\textbf{6}} & 7 \\ \cline{2-8}
+    & 8 & 9 & 10 & 11 & {\large\textbf{12}} & 13 & 14 \\ \hline
+  \end{tabular}
+  \label{tab:timeline}
+\end{table}
+
+\subsubsection*{8th March - SVN Repository Creation}
+In order to maintain a consistent version of the ORM we were working on, we decided to publish it on a SVN repository available at \href{http://code.google.com/p/rfp-movies-ontology/}{http://code.google.com/p/rfp-movies-ontology/}. From that moment onwards, we edited our ORM not only during the practical sessions and group meetings, but we have also divided some tasks among us to be performed separately at home.
+
+\subsubsection*{13th  March - Feedback about our ORM}
+On this day we received an email from Mr. Debruyne with the main remarks about the ORM we had delivered in the first phase. After receiving this email we made an appointment on the 14th March, where we discussed the following points proposed in Mr. Debruyne's feedback:
+\begin{enumerate}	
+  \item He advised us to think of an ontology in the first phase, instead of a conceptual model for a database. After taking this advice into account, we changed our point of view from the application engineer to the client's point of view. As a result, we made a lot of changes to the unnecessary/inconsistent entities that were making our ORM far from the best possible representation;
+  \item We dropped the model of \textbf{Movie}, which is the product we are dealing in our RFP. However, after the presentation with Dr. Meersman, his feedback made us realize that the entity \textbf{Movie} should be present in our ORM. Therefore, we reinserted \textbf{Movie} into the ORM. Nevertheless, this time we connected \textbf{Request} to \textbf{Movie} and the lexical and non-lexical that \textbf{Movie} and \textbf{Request} used to share were added only to \textbf{Movie};
+  \item Changed some lexical entities to non-lexical ones as they were playing more than one role;
+  \item The lexical ``Acceptance'' of a \textbf{Movie} which belongs to a \textbf{Request} was questioned by Mr. Debruyne. During our meeting, we decided to keep it. However, in the last meeting we had with the other RFP groups (May 6), we all agreed that this term should be dropped, as it is something out of the scope of this ontology;
+  \item Our first design for representing Age Rating of a Movie was updated. After this modification, instead of having max and min Age Rating, there's only Age Rating. And it specifies max and min ages.
+\end{enumerate}
+Most of these modifications have been performed during our meeting and some other modifications were assigned among us to be done and committed to the SVN repository.
+
+\subsubsection*{16th March - Meeting with Mr Debruyne}
+This meeting consisted of presenting the modifications we had performed considering the points listed in Mr. Debruyne feedback:
+\begin{enumerate}
+  \item Most points were in accordance to what had already been discussed in the feedback;
+  \item One more time we had some wrong thinking regarding how to represent the ontology instead of a database;
+  \item We added some constraints in our ORM and corrected a few relation multiplicities.
+\end{enumerate}
+
+\subsubsection*{16th March - Collibra implementation}
+We agreed to be the first ones to introduce our ORM implementation into Collibra. Therefore, this would give us the advantage among other groups in their decisions of a new vocabulary.
+
+\subsubsection*{30th March - Meeting}
+We rechecked the Collibra implementation, searching for mistakes. We compared our ORM with current version of ontology on Collibra to see if there are any changes that spoil our model. Moreover, we answered comments from other groups.
+
+\subsubsection*{27th April - Group 6 meeting}
+During the practical session we had our meeting to discuss about the client's perspective.
+\begin{itemize}
+  \item VCARD was adopted as a synonym of the term present in the Shared Perspective and all the other terms and respective fact types were removed. This agreement was made with the group that deals with Accommodation, which was also present in the practical session;
+  \item The discussion about either adopting date or time-stamp arose.
+\end{itemize}
+
+\subsubsection*{6th May - RFP groups meeting}
+During the afternoon there was a meeting where all RFP groups discussed some main points which were still not well defined in our shared ontology. We agreed on how to model the \textbf{Request} vocabulary and, thus, had to make some changes in our model and in the collaborative framework. All the points cited below were agreed on by all the RFP groups.
+\begin{enumerate}
+  \item We deleted the \textbf{Request} vocabulary from the Shared Perspective, so that all groups would start working on the Customer Perspective;
+  \item For the \textbf{Request} to be able to handle multiple elements (in our case, one could request for many types of movies), the Request Detail term was added;
+  \item The term Date was deleted to give place to a Start Date, End Date. We also decided to use the \textbf{Date and Time} vocabulary from the Shared perspective for the RFP groups;
+  \item We decided to adopt the data structure Date instead of Timestamp although Timestamp is already sufficient for our needs of date representation. Date is better suited to be more representative  and straightforward for the case of an ontology;
+  \item The term Period was deleted. It will only be used in specific vocabularies when needed;
+  \item A \textbf{Request} will from now on be identified by a Client and a Start Date;
+  \item All RFP groups have not only \textbf{Request for Products} but also \textbf{Request for Services}. We agreed on renaming \textbf{Service} as a \textbf{Product}, but real products should extend from this. \textbf{Product} will now be identified by a Request Detail;
+  \item Similarly, Service Provider and Service Information were deleted, so they can be dealt with by each group where (if) necessary;
+  \item An optional Payment Method term was added;
+  \item Delivery Method was created to be used only in concrete vocabularies (not services);
+  \item We deleted the Acceptance term. That represents the state of the request. This was done because it was widely discussed that this was not in the scope of our work, our ontology should not cover what can be dealt within an application that adopts it;
+  \item Request History and Response terms were deleted by the same reason as above;
+  \item Also, some changes were made in our own model. For example, we were dealing with the quantities and number of products inside our model, but because the term Request Detail was added, we dropped them from our model.
+\end{enumerate}
+
+\subsubsection*{12th May - RFP groups meeting}
+The following point were agreed upon:
+\begin{enumerate}
+  \item \textbf{Requests} must be linked to \textbf{Product}, which is composed by Name, BusinnessEntity and ElligibleRegion;
+  \item \textbf{Proposals} are a colletion of \textbf{Offerings} which are composed by a BusinnessEntity, Price and one \textbf{Product};
+  \item \textbf{VCARD} is to be splited in two vocabularies, \textbf{ContactDetails} and \textbf{Address}.
+\end{enumerate}
+The second point was fiercely debated upon. Many groups felt that an \textbf{Offering} should provide a set of \textbf{Products} not only one. Either way, since the modeling of \textbf{Proposals} is not within the scope of trhis work, the matter came to a halt.
+
+
+\section{Comments}
+We have encountered many problems using the Collibra interface. First, all the entities of \textbf{Movie} vocabulary were automatically deleted by the system, therefore we had to create a new vocabulary called \textbf{Movie2}. Second, we could not create roles between entities because of a System error (\verb+NullPointerException+). For this reason, we had to place the roles as comments. Finally, the system was down many times making it difficult to work with when we had meetings. 
+
+\section{Responsibilities}
+\begin{itemize}
+  \item \textbf{All:} To define the ORM model, we all worked together in meetings mainly, though in Collibra, we separated ourselves in sub-groups;
+  \item \textbf{Daniel:} discussed the group's ideas with the other groups on the first and third meetings and helped define the group's ontology, providing suggestions and criticism to all entities;
+  \item \textbf{Felipe:} alongside Thiago, helped define and maintain the \textbf{Movie} vocabulary and restored the commits lost by \L{}ukasz, attended the third meeting with other groups along with Daniel;
+  \item \textbf{\L{}ukasz:} defined first version of \textbf{Movie}, \textbf{Client} and \textbf{Request} vocabularies. Then was responsible for \textbf{Request} and participated in the second meeting with other groups;
+  \item \textbf{Thiago:} alongside Felipe, defined the \textbf{Movie} vocabulary and kept changing and maintaining it. Participated in the second meeting with other groups;
+  \item \textbf{Wolney:} defined the \textbf{Client} vocabulary and was responsible of answering inquiries from other groups on Collibra. Participated in the second meeting with other groups.
+\end{itemize}
+
+\section{Final Remarks}
+Although Collibra's logs disagree, the ontology was agreed upon by all. There were always many people working on the same computer, but technically only one person logged at the time.
+
+\end{document}
