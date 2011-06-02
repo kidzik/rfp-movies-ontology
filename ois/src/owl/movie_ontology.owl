@@ -695,8 +695,8 @@
 
     <owl:NamedIndividual rdf:about="http://localhost/WTFDL/movie_ontology.owl#Ace_Ventura">
         <rdf:type rdf:resource="&www;Movie"/>
+        <movieontology:releasedate rdf:datatype="&xsd;date">1994-02-04</movieontology:releasedate>
         <movieontology:imdbrating>6.6</movieontology:imdbrating>
-        <movieontology:releasedate>1994-02-04</movieontology:releasedate>
         <movieontology:title>Ace Ventura, Pet Detective</movieontology:title>
         <movieontology:hasActor rdf:resource="&resource;Jim_Carrey"/>
         <hasMediaType rdf:resource="http://localhost/WTFDL/movie_ontology.owl#DVD"/>
@@ -774,7 +774,7 @@
 
     <owl:NamedIndividual rdf:about="http://localhost/WTFDL/movie_ontology.owl#Inception">
         <rdf:type rdf:resource="&www;Movie"/>
-        <movieontology:releasedate>2010-07-21</movieontology:releasedate>
+        <movieontology:releasedate rdf:datatype="&xsd;date">2010-07-21</movieontology:releasedate>
         <movieontology:imdbrating>8.9</movieontology:imdbrating>
         <tag>dream</tag>
         <movieontology:title>Inception</movieontology:title>
@@ -879,7 +879,7 @@
 
     <owl:NamedIndividual rdf:about="http://localhost/WTFDL/movie_ontology.owl#The_Mask">
         <rdf:type rdf:resource="&www;Movie"/>
-        <movieontology:releasedate>1994-07-29</movieontology:releasedate>
+        <movieontology:releasedate rdf:datatype="&xsd;date">1994-07-29</movieontology:releasedate>
         <movieontology:title>The Mask</movieontology:title>
         <tag>superhero</tag>
         <movieontology:imdbrating>6.7</movieontology:imdbrating>
@@ -903,11 +903,11 @@
 
     <owl:NamedIndividual rdf:about="http://localhost/WTFDL/movie_ontology.owl#Way_of_the_Dragon">
         <rdf:type rdf:resource="&www;Movie"/>
+        <movieontology:releasedate rdf:datatype="&xsd;date">1972-12-30</movieontology:releasedate>
         <tag>martial arts</tag>
         <movieontology:title>Way of the Dragon</movieontology:title>
         <tag>kung fu</tag>
         <movieontology:imdbrating>7.0</movieontology:imdbrating>
-        <movieontology:releasedate>1972-12-30</movieontology:releasedate>
         <hasWriter rdf:resource="&resource;Bruce_Lee"/>
         <movieontology:hasActor rdf:resource="&resource;Bruce_Lee"/>
         <movieontology:hasDirector rdf:resource="&resource;Bruce_Lee"/>
