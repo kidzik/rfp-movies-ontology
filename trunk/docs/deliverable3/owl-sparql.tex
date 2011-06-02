@@ -4,6 +4,7 @@
 \usepackage{eurosym}
 \usepackage{fullpage}
 \usepackage{listings}
+\lstset{language=Java,caption={SPARQLQueries.Java},label=DescriptiveLabel}
 
 %opening
 \title{Open Information Systems Project - Conceptual Schema}
@@ -54,6 +55,7 @@ Some examples presented in Section 1 describe how an application would access th
 Therefore, SPARQL queries are implemented in order to make a demonstration of how these examples previously proposed work in practice.
 
 Jena API was used to code in Java a routine composed by the following steps:
+
 \begin{itemize}
   \item Load the model from an .owl file into an instance of com.hp.hpl.jena.ontology.OntModel;
 \begin{lstlisting}
