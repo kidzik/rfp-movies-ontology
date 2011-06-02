@@ -15,7 +15,7 @@ import com.hp.hpl.jena.util.FileManager;
 
 public class SPARQLQueries {
 
-	static final String inputFile = "movie_ontology.owl";
+	static final String inputFile = "owl/movie_ontology.owl";
 
 	public static void main(String[] args) {
 		
@@ -42,6 +42,8 @@ public class SPARQLQueries {
 		System.out.println(qThe);
 		submitQuery(model, qThe);
 		System.out.println();
+
+		System.out.println(com.hp.hpl.jena.vocabulary.XSD.date.getURI());
 	}
 
 	private static void submitQuery(OntModel model, String query) {
