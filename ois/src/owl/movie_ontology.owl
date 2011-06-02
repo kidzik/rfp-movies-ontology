@@ -77,7 +77,6 @@
 
     <owl:ObjectProperty rdf:about="http://localhost/WTFDL/movie_ontology.owl#hasAgeRating">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:range rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Age_Rating"/>
         <rdfs:domain rdf:resource="&www;Movie"/>
     </owl:ObjectProperty>
@@ -109,7 +108,6 @@
 
     <owl:ObjectProperty rdf:about="http://localhost/WTFDL/movie_ontology.owl#hasMediaType">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Media"/>
         <rdfs:range rdf:resource="http://localhost/WTFDL/movie_ontology.owl#MediaType"/>
         <owl:inverseOf rdf:resource="http://localhost/WTFDL/movie_ontology.owl#isMediaTypeOf"/>
@@ -121,7 +119,6 @@
 
     <owl:ObjectProperty rdf:about="http://localhost/WTFDL/movie_ontology.owl#hasRegion">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Media"/>
         <rdfs:range rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Region"/>
         <owl:inverseOf rdf:resource="http://localhost/WTFDL/movie_ontology.owl#isRegionOf"/>
@@ -152,7 +149,6 @@
     <!-- http://localhost/WTFDL/movie_ontology.owl#isAgeRatingOf -->
 
     <owl:ObjectProperty rdf:about="http://localhost/WTFDL/movie_ontology.owl#isAgeRatingOf">
-        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Age_Rating"/>
         <owl:inverseOf rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasAgeRating"/>
         <rdfs:range rdf:resource="&www;Movie"/>
@@ -192,7 +188,6 @@
     <!-- http://localhost/WTFDL/movie_ontology.owl#isMediaTypeOf -->
 
     <owl:ObjectProperty rdf:about="http://localhost/WTFDL/movie_ontology.owl#isMediaTypeOf">
-        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:range rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Media"/>
         <rdfs:domain rdf:resource="http://localhost/WTFDL/movie_ontology.owl#MediaType"/>
     </owl:ObjectProperty>
@@ -202,7 +197,6 @@
     <!-- http://localhost/WTFDL/movie_ontology.owl#isRegionOf -->
 
     <owl:ObjectProperty rdf:about="http://localhost/WTFDL/movie_ontology.owl#isRegionOf">
-        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:range rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Media"/>
         <rdfs:domain rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Region"/>
     </owl:ObjectProperty>
@@ -495,14 +489,14 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasMediaType"/>
-                <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Region"/>
+                <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#MediaType"/>
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasMediaType"/>
-                <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#MediaType"/>
+                <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Region"/>
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
