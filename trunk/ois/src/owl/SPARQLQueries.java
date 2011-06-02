@@ -22,21 +22,26 @@ public class SPARQLQueries {
 		OntModel model = loadModel(inputFile);
 		
 		// example of query
-		String query = "SELECT ?p ?o WHERE {?p <http://localhost/WTFDL/movie_ontology.owl#title> ?o." +
-				"}";
-		String query2 = "SELECT ?p ?genre WHERE {?p <http://localhost/WTFDL/movie_ontology.owl#title> \"Lord of the Rings\"." +
-									"?p <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> ?genre." +
+		String qAllTitles = "SELECT ?p ?o WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?o." +
+		"}";
+		String qThe = "SELECT ?p ?genre WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?o." +
+									"  FILTER regex(?o, \"the\", \"i\") " +
 									"}";
-
+		
 		
 		//possible future queries
-//		String query2 = "SELECT ?m WHERE {" +
-//				"?genre <http://...#belongsToGenre> ?m." +
-//				"?m <http://...#hasMaximumAgeRating> ?number." +
-//				"FILTER {?number > 25}}";	
+		//String query2 = "SELECT ?m WHERE {" +
+		//		"?genre <http://...#belongsToGenre> ?m." +
+		//		"?m <http://...#hasMaximumAgeRating> ?number." +
+		//		"FILTER {?number > 25}}";	
 		
-		submitQuery(model, query);
-		submitQuery(model, query2);
+		System.out.println(qAllTitles);
+		submitQuery(model, qAllTitles);
+		System.out.println();
+		
+		System.out.println(qThe);
+		submitQuery(model, qThe);
+		System.out.println();
 	}
 
 	private static void submitQuery(OntModel model, String query) {
