@@ -21,12 +21,12 @@ title> ?o.}";
 \end{lstlisting}
 
   \item Collect the results from a ResultSet.
-\begin{lstlisting}
+\begin{verbatim}
 1 http://localhost/WTFDL/movie_ontology.owl#Way_of_the_Dragon Way of the Dragon 
 2 http://localhost/WTFDL/movie_ontology.owl#The_Mask  The Mask  
 3 http://localhost/WTFDL/movie_ontology.owl#Inception Inception 
 4 http://localhost/WTFDL/movie_ontology.owl#Ace_Ventura Ace Ventura, Pet Detective  
-\end{lstlisting}
+\end{verbatim}
 
 \end{itemize}
 
@@ -42,12 +42,12 @@ SELECT ?p ?o WHERE {?p <http://www.movieontology.org/2009/10/01/movieontology.ow
 title> ?o.}
 \end{verbatim}
     \item Output
-      \begin{lstlisting}
+      \begin{verbatim}
 1	http://localhost/WTFDL/movie_ontology.owl#Way_of_the_Dragon	Way of the Dragon	
 2	http://localhost/WTFDL/movie_ontology.owl#The_Mask	The Mask	
 3	http://localhost/WTFDL/movie_ontology.owl#Inception	Inception	
 4	http://localhost/WTFDL/movie_ontology.owl#Ace_Ventura	Ace Ventura, Pet Detective	
-      \end{lstlisting}
+      \end{verbatim}
     \end{itemize}
 
  \item Give me all titles containing ``the'':
@@ -61,10 +61,10 @@ FILTER regex(?o, "the", "i")
 }
 \end{verbatim}
     \item Output
-      \begin{lstlisting}
+      \begin{verbatim}
 1 http://localhost/WTFDL/movie_ontology.owl#Way_of_the_Dragon 
 2 http://localhost/WTFDL/movie_ontology.owl#The_Mask  
-      \end{lstlisting}
+      \end{verbatim}
     \end{itemize}
 
  \item Give me 1 action movie from last year (2010):
@@ -79,9 +79,10 @@ FILTER (?date >= "2010-01-01"^^xsd:date).}
 LIMIT 1
 \end{verbatim}
     \item Output
-      \begin{lstlisting}
-1	http://localhost/WTFDL/movie_ontology.owl#Inception	2010-07-21^^http://www.w3.org/2001/XMLSchema#date
-      \end{lstlisting}
+      \begin{verbatim}
+1	http://localhost/WTFDL/movie_ontology.owl#Inception 2010-07-21^^
+http://www.w3.org/2001/XMLSchema#date
+      \end{verbatim}
     \end{itemize}
 
  \item Give me 2 comedy movies with Jim Carrey:
@@ -95,10 +96,10 @@ belongsToGenre> <http://www.movieontology.org/2009/10/01/movieontology.owl#Comed
 LIMIT 2
 \end{verbatim}
     \item Output
-      \begin{lstlisting}
+      \begin{verbatim}
 1	http://localhost/WTFDL/movie_ontology.owl#The_Mask	
 2	http://localhost/WTFDL/movie_ontology.owl#Ace_Ventura
-      \end{lstlisting}
+      \end{verbatim}
     \end{itemize}
 
 \end{itemize}
