@@ -375,6 +375,16 @@
     
 
 
+    <!-- http://localhost/WTFDL/movie_ontology.owl#imdb_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost/WTFDL/movie_ontology.owl#imdb_ID">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&www;Movie"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://localhost/WTFDL/movie_ontology.owl#tag -->
 
     <owl:DatatypeProperty rdf:about="http://localhost/WTFDL/movie_ontology.owl#tag">
@@ -552,12 +562,22 @@
     <owl:Class rdf:about="&www;Movie">
         <owl:equivalentClass>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#imdb_ID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasMedia"/>
                 <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Media"/>
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:comment>Motion picture that can be in a physical media</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://localhost/WTFDL/movie_ontology.owl#imdb_ID"/>
+        </owl:hasKey>
     </owl:Class>
     
 
@@ -691,6 +711,7 @@
 
     <owl:NamedIndividual rdf:about="http://localhost/WTFDL/movie_ontology.owl#Ace_Ventura">
         <rdf:type rdf:resource="&www;Movie"/>
+        <imdb_ID rdf:datatype="&xsd;string">0109040</imdb_ID>
         <movieontology:releasedate rdf:datatype="&xsd;date">1994-02-04</movieontology:releasedate>
         <movieontology:imdbrating rdf:datatype="&xsd;double">6.6</movieontology:imdbrating>
         <movieontology:title rdf:datatype="&xsd;string">Ace Ventura, Pet Detective</movieontology:title>
@@ -770,6 +791,7 @@
 
     <owl:NamedIndividual rdf:about="http://localhost/WTFDL/movie_ontology.owl#Inception">
         <rdf:type rdf:resource="&www;Movie"/>
+        <imdb_ID rdf:datatype="&xsd;string">1375666</imdb_ID>
         <movieontology:releasedate rdf:datatype="&xsd;date">2010-07-21</movieontology:releasedate>
         <movieontology:imdbrating rdf:datatype="&xsd;double">8.9</movieontology:imdbrating>
         <movieontology:title rdf:datatype="&xsd;string">Inception</movieontology:title>
@@ -875,6 +897,7 @@
 
     <owl:NamedIndividual rdf:about="http://localhost/WTFDL/movie_ontology.owl#The_Mask">
         <rdf:type rdf:resource="&www;Movie"/>
+        <imdb_ID rdf:datatype="&xsd;string">0110475</imdb_ID>
         <movieontology:releasedate rdf:datatype="&xsd;date">1994-07-29</movieontology:releasedate>
         <movieontology:imdbrating rdf:datatype="&xsd;double">6.7</movieontology:imdbrating>
         <movieontology:title rdf:datatype="&xsd;string">The Mask</movieontology:title>
@@ -899,6 +922,7 @@
 
     <owl:NamedIndividual rdf:about="http://localhost/WTFDL/movie_ontology.owl#Way_of_the_Dragon">
         <rdf:type rdf:resource="&www;Movie"/>
+        <imdb_ID rdf:datatype="&xsd;string">0068935</imdb_ID>
         <movieontology:releasedate rdf:datatype="&xsd;date">1972-12-30</movieontology:releasedate>
         <movieontology:imdbrating rdf:datatype="&xsd;double">7.0</movieontology:imdbrating>
         <movieontology:title rdf:datatype="&xsd;string">Way of the Dragon</movieontology:title>
