@@ -389,6 +389,7 @@
 
     <owl:DatatypeProperty rdf:about="&movieontology;imdbrating">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment>A grade given to the movie based on an official critic website (in this case, IMDB).</rdfs:comment>
         <rdfs:domain rdf:resource="&www;Movie"/>
         <rdfs:range rdf:resource="&xsd;double"/>
     </owl:DatatypeProperty>
@@ -399,6 +400,7 @@
 
     <owl:DatatypeProperty rdf:about="&movieontology;releasedate">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment>Release date of a movie</rdfs:comment>
         <rdfs:domain rdf:resource="&www;Movie"/>
         <rdfs:range rdf:resource="&xsd;date"/>
     </owl:DatatypeProperty>
@@ -489,14 +491,14 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasMediaType"/>
-                <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#MediaType"/>
+                <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Region"/>
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://localhost/WTFDL/movie_ontology.owl#hasMediaType"/>
-                <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#Region"/>
+                <owl:onClass rdf:resource="http://localhost/WTFDL/movie_ontology.owl#MediaType"/>
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -555,7 +557,7 @@
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:comment>A grade given to the movie based on an official critic website.</rdfs:comment>
+        <rdfs:comment>Motion picture that can be in a physical media</rdfs:comment>
     </owl:Class>
     
 
